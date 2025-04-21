@@ -8,6 +8,14 @@ Esta é uma API baseada em Flask para um sistema de e-commerce. Ela fornece endp
 - **Gerenciamento de Produtos**: Adicionar, atualizar, deletar e recuperar detalhes de produtos.
 - **Operações no Carrinho**: Adicionar itens ao carrinho, visualizar o conteúdo do carrinho, remover itens e realizar checkout.
 
+## Tecnologias Utilizadas
+
+- [Flask](https://flask.palletsprojects.com/): Framework web minimalista para Python.
+- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/): Extensão para integração com bancos de dados usando SQLAlchemy.
+- [Flask-Login](https://flask-login.readthedocs.io/): Extensão para gerenciamento de autenticação de usuários.
+- [Flask-Cors](https://flask-cors.readthedocs.io/): Extensão para habilitar CORS (Cross-Origin Resource Sharing).
+- [Werkzeug](https://werkzeug.palletsprojects.com/): Biblioteca WSGI para manipulação de requisições e respostas HTTP.
+
 ## Requisitos
 
 - Python 3.8 ou superior
