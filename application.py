@@ -9,10 +9,10 @@ application = Flask(__name__)
 application.config['SECRET_KEY'] = 'minhas_chave_123'
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
 
-login_maneger = LoginManager()
+login_manager = LoginManager()  # Fixed typo in variable name
 database = SQLAlchemy(application)
-login_maneger.init_app(application)
-login_maneger.login_view = 'login'
+login_manager.init_app(application)
+login_manager.login_view = 'login'
 CORS(application)
 
 class Product(database.Model):
@@ -35,7 +35,7 @@ class CartItem(database.Model):
 
 ## Authentication
 
-@login_maneger.user_loader
+@login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
@@ -89,9 +89,9 @@ def delete_product(product_id):
     if product:
         database.session.delete(product)
         database.session.commit()
-        return jsonify({'message':'Product add successfully'}), 200
+        return jsonify({'message': 'Product deleted successfully'}), 200  # Fixed message
 
-    return jsonify({'message':"Invalid product data"}), 404
+    return jsonify({'message': "Product not found"}), 404  # Fixed message
 
 
 @application.route('/api/products/<int:product_id>', methods=['GET'])
@@ -174,14 +174,14 @@ def add_to_cart(product_id):
 @application.route('/api/cart/remove/<int:product_id>', methods=['DELETE'])
 @login_required
 def remove_from_cart(product_id):
-    cart_item = CartItem.query.filter_by(user_id=current_user.id, product_id=Product.id).first()
+    cart_item = CartItem.query.filter_by(user_id=current_user.id, product_id=product_id).first()  # Fixed query logic
     if cart_item:
         database.session.delete(cart_item)
         database.session.commit()
 
-        return jsonify({'message':'Item removed from the cart successfully'}), 200
-    
-    return jsonify({'message':'Failed to remove item from the cart'}), 400
+        return jsonify({'message': 'Item removed from the cart successfully'}), 200
+
+    return jsonify({'message': 'Failed to remove item from the cart'}), 400
 
 @application.route('/api/cart', methods=['GET'])
 @login_required
@@ -217,7 +217,7 @@ def checkout():
 
     database.session.commit()
 
-    return jsonify({'message':'Checkout sucessfully. Cart  ha been cheared'}), 200
+    return jsonify({'message': 'Checkout successful. Cart has been cleared'}), 200  # Fixed typos
 
 
 
