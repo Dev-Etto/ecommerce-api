@@ -220,5 +220,11 @@ def checkout():
     return jsonify({'message':'Checkout sucessfully. Cart  ha been cheared'}), 200
 
 
+
+@application.route('/')
+def initial():
+    return 'API is runing!..'
+
+
 if __name__ == "__main__":
     application.run(debug=True)
