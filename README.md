@@ -1,80 +1,80 @@
-# E-commerce API
+# API de E-commerce
 
-This is a Flask-based API for an e-commerce system. It provides endpoints for user authentication, product management, and cart operations.
+Esta é uma API baseada em Flask para um sistema de e-commerce. Ela fornece endpoints para autenticação de usuários, gerenciamento de produtos e operações no carrinho de compras.
 
-## Features
+## Funcionalidades
 
-- **Authentication**: Login and logout functionality using `Flask-Login`.
-- **Product Management**: Add, update, delete, and retrieve product details.
-- **Cart Operations**: Add items to the cart, view cart contents, remove items, and checkout.
+- **Autenticação**: Funcionalidade de login e logout usando `Flask-Login`.
+- **Gerenciamento de Produtos**: Adicionar, atualizar, deletar e recuperar detalhes de produtos.
+- **Operações no Carrinho**: Adicionar itens ao carrinho, visualizar o conteúdo do carrinho, remover itens e realizar checkout.
 
-## Requirements
+## Requisitos
 
-- Python 3.8 or higher
-- SQLite (default database)
+- Python 3.8 ou superior
+- SQLite (banco de dados padrão)
 
-## Installation
+## Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
 
    ```bash
    git clone <repository-url>
    cd ecommerce-api-py
    ```
 
-2. Install dependencies:
+2. Instale as dependências:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Initialize the database:
+3. Inicialize o banco de dados:
    ```python
    from application import database
    database.create_all()
    ```
 
-## Running the Application
+## Executando a Aplicação
 
-1. Start the Flask server:
+1. Inicie o servidor Flask:
 
    ```bash
    python application.py
    ```
 
-2. Access the API at `http://127.0.0.1:5000`.
+2. Acesse a API em `http://127.0.0.1:5000`.
 
-## API Endpoints
+## Endpoints da API
 
-### Authentication
+### Autenticação
 
-- **POST /login**: Log in with username and password.
-- **POST /logout**: Log out the current user.
+- **POST /login**: Realiza login com nome de usuário e senha.
+- **POST /logout**: Realiza logout do usuário atual.
 
-### Products
+### Produtos
 
-- **GET /api/products**: Retrieve all products.
-- **GET /api/products/{product_id}**: Retrieve details of a specific product.
-- **POST /api/products/add**: Add a new product (requires login).
-- **PUT /api/products/update/{product_id}**: Update a product (requires login).
-- **DELETE /api/products/delete/{product_id}**: Delete a product (requires login).
+- **GET /api/products**: Recupera todos os produtos.
+- **GET /api/products/{product_id}**: Recupera os detalhes de um produto específico.
+- **POST /api/products/add**: Adiciona um novo produto (requer login).
+- **PUT /api/products/update/{product_id}**: Atualiza um produto (requer login).
+- **DELETE /api/products/delete/{product_id}**: Deleta um produto (requer login).
 
-### Cart
+### Carrinho
 
-- **POST /api/cart/add/{product_id}**: Add a product to the cart (requires login).
-- **DELETE /api/cart/remove/{product_id}**: Remove a product from the cart (requires login).
-- **GET /api/cart**: View the cart contents (requires login).
-- **POST /api/cart/checkout**: Checkout and clear the cart (requires login).
+- **POST /api/cart/add/{product_id}**: Adiciona um produto ao carrinho (requer login).
+- **DELETE /api/cart/remove/{product_id}**: Remove um produto do carrinho (requer login).
+- **GET /api/cart**: Visualiza o conteúdo do carrinho (requer login).
+- **POST /api/cart/checkout**: Realiza o checkout e limpa o carrinho (requer login).
 
-## Swagger Documentation
+## Documentação Swagger
 
-The API is documented using Swagger. Refer to the `swagger-doc.x-yaml` file for detailed API specifications.
+A API está documentada usando Swagger. Consulte o arquivo `swagger-doc.x-yaml` para especificações detalhadas da API.
 
-## Notes
+## Observações
 
-- Ensure the database is initialized before running the application.
-- Use a tool like Postman or cURL to test the API endpoints.
+- Certifique-se de inicializar o banco de dados antes de executar a aplicação.
+- Use uma ferramenta como Postman ou cURL para testar os endpoints da API.
 
-## License
+## Licença
 
-This project is licensed under the MIT License.
+Este projeto está licenciado sob a Licença MIT.
